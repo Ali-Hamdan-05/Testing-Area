@@ -22,3 +22,14 @@ const obj = {
 //Type Assertion
 let value = "Stringgg";
 let strlen = value.length;
+//enum and Symbol
+var Dir;
+(function (Dir) {
+    Dir[Dir["Up"] = 0] = "Up";
+    Dir[Dir["Down"] = 1] = "Down";
+    Dir[Dir["Left"] = 2] = "Left";
+    Dir[Dir["Right"] = 3] = "Right";
+})(Dir || (Dir = {}));
+const direction1 = Symbol(Dir.Right);
+const direction2 = Symbol(Dir.Right);
+console.log(direction1 === direction2);
