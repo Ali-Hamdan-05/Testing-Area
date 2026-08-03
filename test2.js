@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //Rest Parameter Example
 function add(...arr) {
     return arr.reduce((sum, val) => sum + val, 0);
@@ -49,3 +50,4 @@ function overload(x, y, z) {
 overload("Hello");
 overload("Hello", 5);
 overload("Hello", 5, true);
+//# sourceMappingURL=test2.js.map

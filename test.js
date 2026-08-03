@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 console.log("Hello, World!");
 let person = "Ali";
 let date = new Date();
@@ -33,3 +34,4 @@ var Dir;
 const direction1 = Symbol(Dir.Right);
 const direction2 = Symbol(Dir.Right);
 console.log(direction1 === direction2);
+//# sourceMappingURL=test.js.map

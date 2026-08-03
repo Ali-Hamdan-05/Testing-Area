@@ -47,3 +47,4 @@ enum Dir{
 const direction1: symbol = Symbol(Dir.Right);
 const direction2: symbol = Symbol(Dir.Right);
 console.log(direction1 === direction2);
+
