@@ -36,3 +36,14 @@ const obj: {
 //Type Assertion
 let value: any = "Stringgg";
 let strlen: number = (value as string).length;
+
+//enum and Symbol
+enum Dir{
+    Up,
+    Down,
+    Left,
+    Right
+}
+const direction1: symbol = Symbol(Dir.Right);
+const direction2: symbol = Symbol(Dir.Right);
+console.log(direction1 === direction2);
