@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 //Property modifiers Exercise
 var Shape;
 (function (Shape) {
@@ -29,3 +30,4 @@ const grades = {
 for (let student in grades) {
     console.log(`${student}: ${grades[student]}`);
 }
+//# sourceMappingURL=test3.js.map
