@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 //Property modifiers Exercise
 var Shape;
 (function (Shape) {
@@ -30,4 +29,18 @@ const grades = {
 for (let student in grades) {
     console.log(`${student}: ${grades[student]}`);
 }
-//# sourceMappingURL=test3.js.map
+function buildCar(config) {
+    return { color: config.color, rpm: config.rpm };
+}
+let car = buildCar({ colour: "red", rpm: 2000 });
+const cc = {
+    color: "red",
+    radius: 2
+};
+function drawcc(circle) {
+    console.log(`Drawing ${circle.color} circle with radius ${circle.radius}`);
+}
+drawcc(cc);
+let box;
+box = { contents: { type: "protein" } };
+console.log(box);
