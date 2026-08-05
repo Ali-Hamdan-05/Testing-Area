@@ -37,3 +37,47 @@ const grades: Grades = {
 for(let student in grades) {
     console.log(`${student}: ${grades[student]}`);
 }
+
+//Excess property checks (ignore checks)
+interface CarConfig{
+    color?: string;
+    rpm?: number;
+    [index: string]: unknown;
+}
+function buildCar(config: CarConfig) : {color: string; rpm: number} {
+    return { color: config.color as string, rpm: config.rpm as number};
+}
+let car = buildCar({ colour: "red", rpm: 2000 });
+
+//Extending Types
+interface colorful {
+    color: string;
+}
+interface circle {
+    radius: number;
+}
+interface colorfulCircle extends colorful, circle{
+}
+const cc: colorfulCircle = {
+    color: "red",
+    radius: 2
+}
+//classes can only extend one class | interfaces with same name are merged automatically by TS if types are compatible
+
+//Intersection types
+type ccType = colorful & circle;
+function drawcc(circle: colorful & circle | ccType) {
+    console.log(`Drawing ${circle.color} circle with radius ${circle.radius}`);
+}
+drawcc(cc);
+
+//generic Objects
+interface Box<Type> {
+    contents: Type;
+}
+interface Food{
+    type: string;
+}
+let box: Box<Food>;
+box = {contents: {type: "protein"}};
+console.log(box);
