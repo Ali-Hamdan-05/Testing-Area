@@ -1,0 +1,92 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game{
+    display: flex;
+    gap: 30px;
+}
+
+.square {
+    height: 100px;
+    width: 100px;
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+    border: solid black;
+    border-width: 2px 2px 1px 1px;
+    transition: background-color 0.5s ease, transform 0.1s ease;
+
+    &:active{
+        transform: scale(0.95);
+    }
+
+    &:hover {
+        background-color: lightgray;
+    }
+
+    &.winner{
+        animation: Flicker 0.1s linear 0s 7;
+        background-color: aquamarine;
+    }
+}
+
+.board-row {
+    display: flex;
+}
+
+.board{
+    background-color: beige;
+    box-shadow: beige -5px 5px 5px 5px;
+    border: solid black;
+    border-width: 3px 3px 2px 2px;
+    padding: 5px;
+}
+
+.hist{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 25px;
+    border: 2px solid black;
+    border-radius: 7px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+.histbtn {
+    background-color: lightgrey;
+}
+.histlist {
+    background-color: azure;
+}
+ul{
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.switchbtn {
+    height: 30px;
+    width: 120px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+
+}
+
+@keyframes Flicker{
+    0% {
+        background-color: azure;
+    }
+    50% {
+        background-color: aquamarine;
+    }
+    100% {
+        background-color: aqua;
+    }
+}
