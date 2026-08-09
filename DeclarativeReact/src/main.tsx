@@ -18,4 +18,4 @@ ReactDOM.createRoot(root).render (
       </Route>
     </Routes>
   </BrowserRouter>
-)
+);
