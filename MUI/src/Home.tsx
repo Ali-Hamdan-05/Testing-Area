@@ -8,8 +8,16 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function Home() {
+
+    const contents = [
+        {id:1, summary: "Who Are We", details: "Just Some Interns Testing Exciting New Stuff They Learned."},
+        {id: 2, summary: "Our Goals", details: "Learn, Grow, And Gain Hands On Experience in Software Engineering."},
+        {id: 3, summary: "Our Methods", details: "Keep Up With The Fast Pace of Innovation, And Bring The Best Out Of Us."},
+        {id:4, summary: "Our Thanks", details: "To DualCom Consulting For Providing Us With This Chance To Grow And Improve."}
+    ]
+
     return (
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 2 }}>
             <Typography variant="h2" sx={{ fontSize: 35 }}>
                 Welcome To Testing Area
             </Typography>
@@ -19,33 +27,14 @@ export default function Home() {
                 Breaks.
             </Typography>
             <Box>
-                <Accordion>
+                {contents.map(({id, summary, details}) => (
+                    <Accordion key={id}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        H1
+                        {summary}
                     </AccordionSummary>
-                    <AccordionDetails>h1h1h1</AccordionDetails>
+                    <AccordionDetails>{details}</AccordionDetails>
                 </Accordion>
-
-                <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        H2
-                    </AccordionSummary>
-                    <AccordionDetails>h2h2h2</AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        H3
-                    </AccordionSummary>
-                    <AccordionDetails>h3h3h3</AccordionDetails>
-                </Accordion>
-
-                <Accordion>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                        H4
-                    </AccordionSummary>
-                    <AccordionDetails>h4h4h4</AccordionDetails>
-                </Accordion>
+                ))}
             </Box>
         </Box>
     );
