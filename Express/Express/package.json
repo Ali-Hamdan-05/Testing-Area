@@ -4,7 +4,7 @@
   "description": "",
   "license": "ISC",
   "author": "ali.hamdan.lb05@gmail.com",
-  "type": "commonjs",
+  "type": "module",
   "main": "app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
