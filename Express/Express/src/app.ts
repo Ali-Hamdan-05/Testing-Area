@@ -1,11 +1,14 @@
 import express, { type Express, type Request, type Response, type NextFunction } from 'express';
 import { request } from 'node:http';
 import router from "./rtrex.ts";
+import reqTime from "./time.ts";
 
 const app: Express = express();
 
+app.use(reqTime);
+
 app.get('/', (req: Request, res: Response) => {
-    res.send("Hello World!!");
+    res.send(req.requestTime);
 });
 
 
@@ -16,7 +19,7 @@ app
     setTimeout(() => next(), 3000);
     })
     .get((req: Request, res: Response) => {
-    res.send("Ahlen");
+    res.send("Hello World");
     })
 ;
 
