@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
@@ -11,6 +11,15 @@ export default function SideBar({
     readonly isOpen: boolean;
     readonly setOpen: (toggle: boolean) => void;
 }) {
+    const location = useLocation();
+
+    const links = [
+        { to: "/", label: "Home" },
+        { to: "/about", label: "About" },
+        { to: "/gallery", label: "Gallery" },
+        { to: "/message", label: "Message" },
+    ];
+
     return (
         <Drawer
             open={isOpen}
@@ -26,45 +35,26 @@ export default function SideBar({
                     variant="text"
                     className="btngrp"
                 >
-                    <Button>
-                        <NavLink
-                            to="/home"
-                            onClick={() => setOpen(false)}
-                            className="Nav"
-                        >
-                            Home
-                        </NavLink>
-                    </Button>
+                    {links.map(({ to, label }) => {
+                        const isActive = location.pathname === to;
 
-                    <Button>
-                        <NavLink
-                            to="/about"
-                            onClick={() => setOpen(false)}
-                            className="Nav"
-                        >
-                            About
-                        </NavLink>
-                    </Button>
-
-                    <Button>
-                        <NavLink
-                            to="/gallery"
-                            onClick={() => setOpen(false)}
-                            className="Nav"
-                        >
-                            Gallery
-                        </NavLink>
-                    </Button>
-
-                    <Button>
-                        <NavLink
-                            to="message"
-                            onClick={() => setOpen(false)}
-                            className="Nav"
-                        >
-                            Message
-                        </NavLink>
-                    </Button>
+                        return (
+                            <Button
+                                key={to}
+                                component={NavLink}
+                                to={to}
+                                onClick={(e) => {
+                                    if (isActive) {
+                                        e.preventDefault();
+                                        return;
+                                    }
+                                    setOpen(false);
+                                }}
+                            >
+                                {label}
+                            </Button>
+                        );
+                    })}
                 </ButtonGroup>
             </nav>
         </Drawer>
