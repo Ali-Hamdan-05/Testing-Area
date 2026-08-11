@@ -18,6 +18,7 @@ function Header() {
             <AppBar
                 sx={{
                     zIndex: (theme) => theme.zIndex.drawer + 1,
+                    backgroundColor: "rgb(89, 103, 148)",
                     position: "relative",
                 }}
             >

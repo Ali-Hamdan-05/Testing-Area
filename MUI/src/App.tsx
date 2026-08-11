@@ -18,13 +18,25 @@ function App() {
                 }}
             >
                 <Paper
-                    sx={{ minWidth: 150, flex: 1 }}
-                    elevation={2}
+                    sx={{
+                        minWidth: 150,
+                        flex: 1,
+                        maxWidth: 200,
+                        backgroundColor: "rgba(140, 155, 157, 0.58)",
+                    }}
+                    elevation={5}
                     className="Paper"
                 >
                     WELCOME
                 </Paper>
-                <Paper sx={{ width: 400, flex: 5 }} variant="outlined" className="Paper">
+                <Paper
+                    sx={{
+                        flex: 5,
+                        backgroundColor: "rgba(114, 124, 158, 0.32)",
+                    }}
+                    variant="outlined"
+                    className="Paper"
+                >
                     <Outlet />
                 </Paper>
             </Box>
