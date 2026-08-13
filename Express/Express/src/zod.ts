@@ -42,7 +42,7 @@ const alex = {
     username: "Alexa",
     email: "alexa@example.com",
     xp: -50,
-} as PlayerTypeIn;
+};
 
 const fred = {
     id: "--Id3",
@@ -66,7 +66,9 @@ zodRouter.get("/players", (req: Request, res: Response) => {
             });
         } else {
             console.log(fredResult.error.issues[0]!);
-            res.send(fredResult.error.issues[0]!.message);
+            setTimeout(() => {
+                res.redirect("/hello");
+            }, 3000);
             return;
         }
         res.json({

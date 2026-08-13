@@ -52,6 +52,8 @@ app.use('/error1', (req: Request, res: Response, next: NextFunction) => {
     }).catch(next);
 });
 
+app.use("/zod", zodRouter);
+
 const errorHandler = (err: Error, req: Request, res: Response, next: NextFunction) => {
     res.status(500).send("Internal Server Error");
 };
@@ -59,8 +61,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     console.error("Error Occured");
     next('error');
 }, errorHandler);
-
-app.use("/zod", zodRouter);
 
 app.listen(3000, () => {
     console.log("Example of app listening on port 3000")
