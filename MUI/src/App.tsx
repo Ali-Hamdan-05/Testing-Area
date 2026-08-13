@@ -1,11 +1,31 @@
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import Header from "./Header.tsx";
-import { Box, Paper } from "@mui/material";
+import { Box, Breadcrumbs, Paper } from "@mui/material";
+import MuiLink from "@mui/material/Link";
+
+type Path = {
+    path: string;
+    label: string;
+};
+
+const paths: Path[] = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" }
+];
 
 function App() {
     return (
         <>
             <Header />
+
+            <Breadcrumbs separator=">">
+                {paths.map((path) => (
+                    <MuiLink key={path.path} href={path.path} underline="hover">
+                        {path.label}
+                    </MuiLink>
+                ))}
+            </Breadcrumbs>
 
             <Box
                 sx={{

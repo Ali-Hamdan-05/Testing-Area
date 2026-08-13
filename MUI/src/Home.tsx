@@ -6,8 +6,19 @@ import {
     Typography,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { useState } from "react";
 
 export default function Home() {
+    const [expanded, setExpanded] = useState(0);
+
+    function onAccordionClick(index: number) {
+        if (index === expanded) {
+            setExpanded(0);
+            return;
+        }
+        setExpanded(index);
+    }
+
     const contents = [
         {
             id: 1,
@@ -57,6 +68,8 @@ export default function Home() {
                     <Accordion
                         key={id}
                         sx={{ background: "rgba(191, 206, 189, 0.93)" }}
+                        expanded={expanded === id}
+                        onChange={() => onAccordionClick(id)}
                     >
                         <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                             {summary}
