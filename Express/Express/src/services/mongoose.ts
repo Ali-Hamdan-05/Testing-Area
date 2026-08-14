@@ -5,11 +5,13 @@ import { minLength } from "zod";
 const StudioSchema = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        trim: true
     },
     location: {
         type: String,
-        required: false
+        required: false,
+        trim: true
     }
 })
 StudioSchema.methods.getDetails = function () {
@@ -23,13 +25,18 @@ const GameSchema = new mongoose.Schema(
         name: {
             type: String,
             required: true,
-            minLength: 3
+            minLength: 3,
+            trim: true
         },
         price: {
             type: Number,
             required: true
         },
-        category: String,
+        category: {
+            type: String,
+            trim: true,
+            required: true
+        },
         studio: {
             type: mongoose.SchemaTypes.ObjectId,
             ref: "Studio",
