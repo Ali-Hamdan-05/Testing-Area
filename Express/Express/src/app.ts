@@ -8,18 +8,27 @@ import router from "./rtrex.ts";
 import reqTime from "./time.ts";
 import "./types/express.d.ts";
 import zodRouter from "./zod.ts";
-import { connectToDatabase } from "./services/database.service.ts";
-import { gamesRouter } from "./routes/games.router.ts";
+import { connectToDatabase } from "./services/mongoose.ts";
+import { gamesRouter } from "./routes/mongoose.router.ts"
 
 const app: Express = express();
 
-connectToDatabase()
-    .then(() => {
-        app.use("/games", gamesRouter);
-    })
-    .catch((error) => {
-        console.error("Failed to connect to database");
-    });
+//MongoDB
+// connectToDatabase()
+//     .then(() => {
+//         app.use("/games", gamesRouter);
+//     })
+//     .catch((error) => {
+//         console.error("Failed to connect to database");
+//     });
+
+//Mongoose
+connectToDatabase().then(() => {
+    console.log("Connected to DB using Mongoose")
+    app.use("/games", gamesRouter);
+}).catch((error) => {
+    console.error("Failed to connect to database");
+});
 
 app.use(reqTime);
 
